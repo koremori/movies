@@ -29,14 +29,15 @@ def movie_to_ostruct(movies) # => Array with OpenStruct
 end
 
 def normalizing_dates(date)
-  Date.parse(case date.size
-             when 4
-               "#{date}-01-01"
-             when 7
-               "#{date}-01"
-             else
-               date
-             end
+  datemod = case date.size
+            when 4
+              "#{date}-01-01"
+            when 7
+              "#{date}-01"
+            else
+              date
+            end
+  Date.parse(datemod)
 end
 
 def finding_movies(movies, title)
