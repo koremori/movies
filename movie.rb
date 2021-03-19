@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
+require 'date'
+
+# This class controls each specific field of information about each individual movie
 class Movie
   attr_reader :link, :title, :shoot_year, :origin, :release_date, :genre, :duration, :rating, :director, :cast
-  require 'date'
 
   def initialize(movie)
     @link = movie[0],
@@ -15,7 +19,7 @@ class Movie
     @cast = movie[9]
   end
 
-  def has_genre?(genre)
+  def genre?(genre)
     self.genre.include?(genre)
   end
 
