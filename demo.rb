@@ -12,7 +12,8 @@ end
 
 collection = MovieCollection.new(file)
 
-puts collection.all.first(10).map(&:title)
-puts collection.sorted(:cast) # <= and any other syms
-puts collection.filtered(:genre, 'Drama')
-# p collection.stats(:director)
+p collection.all.map(&:link)
+#puts collection.sorted(:cast) # <= and any other syms
+#puts collection.filtered(:genre, 'Drama')
+#puts collection.stats(:release_date)
+#puts collection.all.genre.genre?('Tragedy')
