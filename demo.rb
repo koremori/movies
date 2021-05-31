@@ -10,10 +10,9 @@ unless File.exist?(file)
   exit
 end
 
-collection = MovieCollection.new(file)
+movies = MovieCollection.new(file)
 
-p collection.all.map(&:link)
-#puts collection.sorted(:cast) # <= and any other syms
-#puts collection.filtered(:genre, 'Drama')
-#puts collection.stats(:release_date)
-#puts collection.all.genre.genre?('Tragedy')
+movies.sort_by(:title) # <= and any other keys
+movies.filter(:genre, 'Comedy')
+movies.stats(:director)
+# movies.genre?('Comedy') #?????
