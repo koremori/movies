@@ -12,7 +12,7 @@ end
 
 movies = MovieCollection.new(file)
 
-movies.sort_by(:shoot_year) # <= and any other keys
+movies.sort_by(:origin) # <= and any other keys
 movies.filter(:origin, 'Soviet Union')
-movies.stats(:shoot_year)
-movies.genre?('Tragedy')
+movies.stats(:cast)
+movies.all.first.genre?('Tragedy')
