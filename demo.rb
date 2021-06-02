@@ -12,7 +12,7 @@ end
 
 movies = MovieCollection.new(file)
 
-movies.sort_by(:title) # <= and any other keys
-movies.filter(:genre, 'Comedy')
-movies.stats(:director)
-# movies.genre?('Comedy') #?????
+movies.sort_by(:shoot_year) # <= and any other keys
+movies.filter(:origin, 'Soviet Union')
+movies.stats(:shoot_year)
+movies.genre?('Tragedy')

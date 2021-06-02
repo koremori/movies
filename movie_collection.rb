@@ -4,7 +4,7 @@ require 'csv'
 
 # This class controls inner behaviour of all movies in the list
 class MovieCollection
-  attr_reader :movies
+  attr_reader :movies, :genre
 
   def initialize(file)
     @movies = CSV.read(file, col_sep: '|').map { |movie| Movie.new(movie) }
@@ -14,14 +14,16 @@ class MovieCollection
     @movies
   end
 
+  def genre?(genre)
+     unless all.map(&:genre).include?(genre)
+       puts "#{genre} is not in the list, try something else!"
+     else puts 'Yes'
+     end
+  end
+
   # By 'key' we can send any instance variable stated in 'class Movie' to sort stuff
   def sort_by(key)
-    if key == 'director'.to_sym
-      # Sorting the only case when output matches ALOT
-      all.sort_by { |movie| movie.send(key) }.uniq.each { |movie| movie_info(movie) }
-    else
-      all.sort_by { |movie| movie.send(key) }.each { |movie| movie_info(movie) }
-    end
+    all.sort_by(&key).each { |movie| movie_info(movie) }
   end
 
   def filter(key, info)
@@ -29,17 +31,18 @@ class MovieCollection
   end
 
   def stats(key)
-    if key == 'release_date'.to_sym
+    case key.to_s
+    when 'release_date'
       all.map { |dates| dates.release_date.strftime('%B') }.tally
          .each { |info, stat| stat_render(info, stat) }
-    elsif key == 'cast'.to_sym
+    when 'cast'
       all.map { |actors| actors.cast.split(',') }.flatten.sort.tally
          .each { |info, stat| stat_render(info, stat) }
-    elsif key == 'genre'.to_sym
+    when 'genre'
       all.map { |genres| genres.genre.split(',') }.flatten.sort.tally
          .each { |info, stat| stat_render(info, stat) }
     else
-      all.map { |movies| movies.send(key.to_sym) }.sort.tally
+      all.map(&key).sort.tally
          .each { |info, stat| stat_render(info, stat) }
     end
   end

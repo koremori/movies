@@ -19,12 +19,9 @@ class Movie
     @cast = movie[9]
   end
 
-  def genre?(genre)
-    case self.genre.include?(genre)
-    when false
-      puts "#{genre} is not on the list, try something else!"
-    end
-  end
+  # def genre?(genre)
+    # puts "#{genre} is not on the list, try something else!" unless self.genre.include?(genre)
+  # end
 
   private
 
