@@ -24,12 +24,7 @@ class MovieCollection
   end
 
   def stats(key)
-    if key.to_s == 'release_date'
-      @movies.map { |dates| dates.send(key).strftime('%B') }.tally
-             .each { |info, stat| stat_render(info, stat) }
-    else
-      @movies.flat_map(&key).sort.tally.each { |info, stat| stat_render(info, stat) }
-    end
+    @movies.flat_map(&key).sort.tally.each { |info, stat| stat_render(info, stat) }
   end
 
   # Fancy output rendering methods
@@ -44,5 +39,4 @@ class MovieCollection
   def movie_info(movie)
     puts "#{movie.send(:title)} (#{movie.send(:release_date)}; #{movie.send(:genre).join(' ')}) - #{movie.send(:duration)} min; dir.#{movie.send(:director)}"
   end
-
 end

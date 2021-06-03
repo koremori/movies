@@ -11,7 +11,7 @@ class Movie
     @title = movie[1]
     @shoot_year = movie[2].to_i
     @origin = movie[3]
-    @release_date = normalizing_dates(movie[4])
+    @release_date = normalizing_dates(movie[4]).strftime('%B-%d-%Y')
     @genre = movie[5].split(',')
     @duration = movie[6].to_i
     @rating = rating_calculation(movie[7])
@@ -19,8 +19,8 @@ class Movie
     @cast = movie[9].split(',')
   end
 
-  def genre?(genre)
-    puts "#{genre} is not on the list, try something else!" unless self.genre.include?(genre)
+  def has_genre?(genre)
+    raise StandardError, "#{genre} is not on the list, try something else!" unless self.genre.include?(genre)
   end
 
   private
