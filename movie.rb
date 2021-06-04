@@ -20,11 +20,7 @@ class Movie
   end
 
   def has_genre?(genre)
-    if self.genre.include?(genre)
-      puts "#{genre} exists!"
-    else
-      raise StandardError, "#{genre} is not on the list, try something else!"
-    end
+    self.genre.include?(genre) ? (puts "#{genre} found!") : (raise StandardError, "#{genre} is not on the list, try something else!")
   end
 
   private

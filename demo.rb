@@ -15,4 +15,4 @@ movies = MovieCollection.new(file)
 movies.sort_by(:origin) # <= and any other keys
 movies.filter(:origin, 'Soviet Union')
 movies.stats(:cast)
-movies.all.first.has_genre?('Tragedy')
+movies.all.first.has_genre?('Drama')
