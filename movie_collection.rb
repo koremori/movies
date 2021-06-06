@@ -33,10 +33,10 @@ class MovieCollection
   end
 
   def filter_render(movie)
-    puts "#{movie.send(:title)} - #{movie.send(:genre).join(' ')} - #{movie.send(:origin)}"
+    puts "#{movie.title} - #{movie.genre.join(' ')} - #{movie.origin}"
   end
 
   def movie_info(movie)
-    puts "#{movie.send(:title)} (#{movie.send(:release_date)}; #{movie.send(:genre).join(' ')}) - #{movie.send(:duration)} min; dir.#{movie.send(:director)}"
+    puts "#{movie.title} (#{movie.release_date}; #{movie.genre.join(' ')}) - #{movie.duration} min; dir.#{movie.director}"
   end
 end
