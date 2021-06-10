@@ -56,8 +56,8 @@ def sorted_by_last_name(movies)
   movies.sort_by { |movie| movie[:director].split.last }.uniq { |movie| movie[:director] }
 end
 
-def sorted_by_genre(movies, comedy)
-  movies.select { |movie| movie[:genre].include?(comedy) }
+def sorted_by_genre(movies, genre)
+  movies.select { |movie| movie[:genre].include?(genre) }
 end
 
 def sorted_by_origin(movies, country)
@@ -95,7 +95,7 @@ end
 movies_data = reading_file(ARGV.first.to_s) # ARRAY -> string
 movies_array = normalizing_movie_data(movies_data) # string -> array with subarrays
 movies_struct = movie_to_ostruct(movies_array) # array with subarrays -> array with OpenStruct
-year_sorted_struct = sorted_by_year(movies_struct)
+year_sorted_struct = sorted_by_year(movies_struct) # array with openstruct
 
 puts "Movies which contain \"Max\" in title: \n"
 finding_movies(movies_struct, 'Max').each { |movie| render_movie(movie) }
