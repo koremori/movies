@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
 class ClassicMovie < Movie
-  cost = 1.5
+  COST = 1.5
+  def info
+    "#{@title} - classical movie, dir. #{@director}"
+  end
 end

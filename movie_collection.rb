@@ -6,8 +6,17 @@ require 'csv'
 class MovieCollection
   attr_reader :genre
 
+  MOVIE_CLASSES = { 1900..1945 => AncientMovie,
+                    1945..1968 => ClassicMovie,
+                    1968..2000 => ModernMovie,
+                    2000..2021 => NewMovie }.freeze
+
+  def class_mapper(movie)
+    MOVIE_CLASSES.select { |key, _value| key.cover?(movie.to_i) }
+  end
+
   def initialize(file)
-    @movies = CSV.read(file, col_sep: '|').map { |movie| Movie.new(movie) }
+    @movies = CSV.read(file, col_sep: '|').map { |movie| class_mapper(movie[2]).values.first.new(movie) }
   end
 
   def all

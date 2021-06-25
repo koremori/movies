@@ -4,6 +4,12 @@ require 'date'
 
 # This class controls each specific field of information about each individual movie
 class Movie
+
+  require_relative 'ancient_movie'
+  require_relative 'classic_movie'
+  require_relative 'modern_movie'
+  require_relative 'new_movie'
+
   attr_reader :link, :title, :shoot_year, :origin, :release_date, :genre, :duration, :rating, :director, :cast
 
   def initialize(movie)
