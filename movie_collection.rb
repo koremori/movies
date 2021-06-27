@@ -11,12 +11,12 @@ class MovieCollection
                     1968..2000 => ModernMovie,
                     2000..2021 => NewMovie }.freeze
 
-  def class_mapper(movie)
-    MOVIE_CLASSES.select { |key, _value| key.cover?(movie.to_i) }
+  def initialize(file)
+    @movies = CSV.read(file, col_sep: '|').map { |movie| class_mapper(movie[2]).new(movie) }
   end
 
-  def initialize(file)
-    @movies = CSV.read(file, col_sep: '|').map { |movie| class_mapper(movie[2]).values.first.new(movie) }
+  def class_mapper(movie)
+    MOVIE_CLASSES.find { |key, _value| key.cover?(movie.to_i) }.last
   end
 
   def all
@@ -46,6 +46,6 @@ class MovieCollection
   end
 
   def movie_info(movie)
-    puts "#{movie.title} (#{movie.release_date}; #{movie.genre.join(' ')}) - #{movie.duration} min; dir.#{movie.director}"
+    puts "#{movie.title} (#{movie.premiere}; #{movie.genre.join(' ')}) - #{movie.runtime} min; dir.#{movie.director}"
   end
 end
