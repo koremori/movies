@@ -15,8 +15,8 @@ class MovieCollection
     @movies = CSV.read(file, col_sep: '|').map { |movie| class_mapper(movie[2]).new(movie) }
   end
 
-  def class_mapper(movie)
-    MOVIE_CLASSES.find { |key, _value| key.cover?(movie.to_i) }.last
+  def class_mapper(year)
+    MOVIE_CLASSES.find { |key, _value| key.cover?(year.to_i) }.last
   end
 
   def all
