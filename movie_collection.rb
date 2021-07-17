@@ -4,8 +4,6 @@ require 'csv'
 
 # This class controls inner behaviour of all movies in the list
 class MovieCollection
-  attr_reader :genre
-
   MOVIE_CLASSES = { 1900..1945 => AncientMovie,
                     1945..1968 => ClassicMovie,
                     1968..2000 => ModernMovie,

@@ -3,6 +3,6 @@
 class ModernMovie < Movie
   COST = 3
   def info
-    "#{@title} - modern movie: starring #{@cast}"
+    "#{@title} - modern movie, starring: #{@cast.join(', ')}"
   end
 end

@@ -4,7 +4,6 @@ require 'date'
 
 # This class controls each specific field of information about each individual movie
 class Movie
-
   require_relative 'ancient_movie'
   require_relative 'classic_movie'
   require_relative 'modern_movie'
@@ -13,6 +12,8 @@ class Movie
   attr_reader :link, :title, :shot, :origin, :premiere, :genre, :runtime, :rating, :director, :cast
 
   def initialize(movie)
+    raise ArgumentError, 'Invalid argument' unless movie.is_a?(Array)
+
     @link = movie[0]
     @title = movie[1]
     @shot = movie[2].to_i
@@ -26,7 +27,7 @@ class Movie
   end
 
   def has_genre?(genre)
-    raise StandardError, "#{genre} not found!" unless self.genre.include?(genre)
+    raise ArgumentError, "#{genre} not found!" unless self.genre.include?(genre)
 
     true
   end
