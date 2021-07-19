@@ -10,11 +10,11 @@ class MovieCollection
                     2000..2021 => NewMovie }.freeze
 
   def initialize(file)
-    p @movies = CSV.read(file, col_sep: '|').map { |movie| class_mapper(movie[2]).new(movie) }
+    @movies = CSV.read(file, col_sep: '|').map { |movie| class_mapper(movie[2]).new(movie) }
   end
 
   def class_mapper(year)
-   MOVIE_CLASSES.find { |key, _value| key.cover?(year.to_i) }.last
+    MOVIE_CLASSES.find { |key, _value| key.cover?(year.to_i) }.last
   end
 
   def all
