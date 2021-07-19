@@ -49,7 +49,7 @@ RSpec.describe Movie do
     end
   end
 
-  context 'testing_dates' do
+  context 'normalizing_dates' do
     let(:date1) do
       ['http://imdb.com/title/tt0052357/?ref_=chttp_tt_68',
        'Vertigo',
@@ -66,7 +66,7 @@ RSpec.describe Movie do
     context '4 digit date' do
       it 'adds numbers to unify format' do
         date_test = Movie.new(date1)
-        expect(date_test.test).to eq('1958-01-01')
+        expect(date_test.premiere).to eq('January-01-1958')
       end
     end
 
@@ -86,7 +86,7 @@ RSpec.describe Movie do
 
       it 'adds numbers to unify format' do
         date_test2 = Movie.new(date2)
-        expect(date_test2.test).to eq('1959-09-01')
+        expect(date_test2.premiere).to eq('September-01-1959')
       end
     end
   end

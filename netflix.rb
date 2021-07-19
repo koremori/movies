@@ -22,6 +22,10 @@ class Netflix < MovieCollection
     @wallet += currency
   end
 
+  def balance
+    puts "Balance: #{@wallet}"
+  end
+
   def show(genre, period)
     choice = []
     choice << @movies.select { |movie| movie.genre.include?(genre) && FILTER[period] == movie.class }.sample
@@ -31,7 +35,7 @@ class Netflix < MovieCollection
   end
 
   def how_much?(title)
-    puts @movies.select { |movie| movie.title.include?(title) }.first.class::COST
+    puts "#{title} costs: #{@movies.select { |movie| movie.title.include?(title) }.first.class::COST}"
   end
 
   def render_output(movie)

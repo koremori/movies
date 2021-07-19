@@ -9,7 +9,7 @@ class Movie
   require_relative 'modern_movie'
   require_relative 'new_movie'
 
-  attr_reader :link, :title, :shot, :origin, :premiere, :genre, :runtime, :rating, :director, :cast, :test
+  attr_reader :link, :title, :shot, :origin, :premiere, :genre, :runtime, :rating, :director, :cast
 
   def initialize(movie)
     raise ArgumentError, 'Invalid argument' unless movie.is_a?(Array)
@@ -24,24 +24,12 @@ class Movie
     @rating = rating_calculation(movie[7])
     @director = movie[8]
     @cast = movie[9].split(',')
-    @test = testing_dates(movie[4])
   end
 
   def has_genre?(genre)
     raise ArgumentError, "#{genre} not found!" unless self.genre.include?(genre)
 
     true
-  end
-
-  def testing_dates(date)
-    datemod = case date.size
-              when 4
-                "#{date}-01-01"
-              when 7
-                "#{date}-01"
-              else
-                date
-              end
   end
 
   private

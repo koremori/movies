@@ -16,27 +16,33 @@ movies = MovieCollection.new(file)
 netflix = Netflix.new(file)
 theatre = Theatre.new(file)
 
-# movies.sort_by(:origin) # <= and any other keys
-movies.filter(:origin, 'Soviet Union')
-# movies.stats(:origin)
-p movies.all.first.has_genre?('Drama')
-netflix.how_much?('Metropolis')
-p netflix.wallet
-p netflix.pay(20)
-netflix.show('Comedy', :new)
-netflix.show('Drama', :ancient)
-p netflix.wallet
-netflix.show('Comedy', :ancient)
-netflix.show('Adventure', :modern)
-p netflix.wallet
-netflix.show('Drama', :new)
-p netflix.wallet
+# movies.sort_by(:rating) # <= and any other keys
+# movies.filter(:origin, 'Soviet Union')
+# movies.stats(:genre)
+# p movies.all.first.has_genre?('Drama')
+# netflix.how_much?('Metropolis')
+# netflix.balance
+# netflix.pay(20)
+# netflix.show('Comedy', :new)
+# netflix.show('Drama', :ancient)
+# netflix.balance
+# netflix.show('Comedy', :ancient)
+# netflix.show('Adventure', :modern)
+# netflix.balance
+# netflix.show('Drama', :new)
+# netflix.balance
 # netflix.show('Comedy', :new)
 # netflix.show('Comedy', :new)
 # netflix.show('Comedy', :new)
 # netflix.show('Comedy', :new)
-netflix.show('Comedy', :ancient)
-p netflix.wallet
+# netflix.show('Comedy', :ancient)
+# netflix.balance
+# p netflix.all
 
-theatre.show('morning')
-theatre.when?('Alien')
+p theatre.show('evening')
+p theatre.show('morning')
+p theatre.show('afternoon')
+p theatre.when?('Mad Max')
+p theatre.when?('The Thing')
+p theatre.when?('Metropolis')
+p theatre.when?('The Shawshank Redemption')
