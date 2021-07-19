@@ -6,7 +6,7 @@ RSpec.describe Movie do
      'The Wolf of Wall Street',
      '2013',
      'USA',
-     'December-25-2013',
+     '2013-12-25',
      'Biography,Comedy,Crime',
      '180',
      '8.1',
@@ -22,6 +22,7 @@ RSpec.describe Movie do
         expect(movie.genre).to eq(['Biography', 'Comedy', 'Crime'])
         expect(movie.rating).to eq('*')
         expect(movie.premiere).to eq('December-25-2013')
+        expect(movie.shot).to eq(2013)
       end
     end
 
@@ -48,19 +49,44 @@ RSpec.describe Movie do
     end
   end
 
-  context 'normalizing_dates' do
-    let(:date) { '2013' }
+  context 'testing_dates' do
+    let(:date1) do
+      ['http://imdb.com/title/tt0052357/?ref_=chttp_tt_68',
+       'Vertigo',
+       '1958',
+       'USA',
+       '1958',
+       'Mystery,Romance,Thriller',
+       '128',
+       '8.4',
+       'Alfred Hitchcock',
+       'James Stewart, Kim Novak, Barbara Bel Geddes']
+    end
 
-    context 'date with 4 digits' do
-      it 'adds blank digits to pass unification' do
-        expect(normalizing_dates(date)).to eq('2013-01-01')
+    context '4 digit date' do
+      it 'adds numbers to unify format' do
+        date_test = Movie.new(date1)
+        expect(date_test.test).to eq('1958-01-01')
       end
     end
 
-    let(:date) { '1959-09' }
-    context 'date with 7 digits' do
-      it 'adds blank digits to pass unification' do
-        expect(normalizing_dates(date)).to eq('1959-09-01')
+    context '7 digit date' do
+      let(:date2) do
+        ['http://imdb.com/title/tt0052561/?ref_=chttp_tt_247',
+         'Anatomy of a Murder',
+         '1959',
+         'USA',
+         '1959-09',
+         'Crime,Drama,Mystery',
+         '160',
+         '8.1',
+         'Otto Preminger',
+         'James Stewart, Lee Remick, Ben Gazzara']
+      end
+
+      it 'adds numbers to unify format' do
+        date_test2 = Movie.new(date2)
+        expect(date_test2.test).to eq('1959-09-01')
       end
     end
   end
