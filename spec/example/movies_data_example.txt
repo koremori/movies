@@ -1,0 +1,7 @@
+http://imdb.com/title/tt0111161/?ref_=chttp_tt_1|The Shawshank Redemption|1994|USA|1994-10-14|Crime,Drama|142 min|9.3|Frank Darabont|Tim Robbins,Morgan Freeman,Bob Gunton
+http://imdb.com/title/tt0052357/?ref_=chttp_tt_68|Vertigo|1958|USA|1958|Mystery,Romance,Thriller|128 min|8.4|Alfred Hitchcock|James Stewart,Kim Novak,Barbara Bel Geddes
+http://imdb.com/title/tt0052561/?ref_=chttp_tt_247|Anatomy of a Murder|1959|USA|1959-09|Crime,Drama,Mystery|160 min|8.1|Otto Preminger|James Stewart,Lee Remick,Ben Gazzara
+http://imdb.com/title/tt0017136/?ref_=chttp_tt_107|Metropolis|1927|Germany|1927-03-13|Drama,Sci-Fi|153 min|8.3|Fritz Lang|Brigitte Helm,Alfred Abel,Gustav Fröhlich
+http://imdb.com/title/tt1392190/?ref_=chttp_tt_92|Mad Max: Fury Road|2015|Australia|2015-05-15|Action,Adventure,Sci-Fi|120 min|8.4|George Miller|Tom Hardy,Charlize Theron,Nicholas Hoult
+http://imdb.com/title/tt0084787/?ref_=chttp_tt_164|The Thing|1982|USA|1982-06-25|Horror,Sci-Fi|109 min|8.2|John Carpenter|Kurt Russell,Wilford Brimley,Keith David
+http://imdb.com/title/tt0057012/?ref_=chttp_tt_50|Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb|1964|USA|1964-01-29|Comedy,War|95 min|8.5|Stanley Kubrick|Peter Sellers,George C. Scott,Sterling Hayden

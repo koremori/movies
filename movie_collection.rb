@@ -4,10 +4,17 @@ require 'csv'
 
 # This class controls inner behaviour of all movies in the list
 class MovieCollection
-  attr_reader :genre
+  MOVIE_CLASSES = { 1900..1945 => AncientMovie,
+                    1945..1968 => ClassicMovie,
+                    1968..2000 => ModernMovie,
+                    2000..2021 => NewMovie }.freeze
 
   def initialize(file)
-    @movies = CSV.read(file, col_sep: '|').map { |movie| Movie.new(movie) }
+    @movies = CSV.read(file, col_sep: '|').map { |movie| class_mapper(movie[2]).new(movie) }
+  end
+
+  def class_mapper(year)
+    MOVIE_CLASSES.find { |key, _value| key.cover?(year.to_i) }.last
   end
 
   def all
@@ -37,6 +44,6 @@ class MovieCollection
   end
 
   def movie_info(movie)
-    puts "#{movie.title} (#{movie.release_date}; #{movie.genre.join(' ')}) - #{movie.duration} min; dir.#{movie.director}"
+    puts "#{movie.title} (#{movie.premiere}; #{movie.genre.join(' ')}) - #{movie.runtime} min; dir.#{movie.director}"
   end
 end
