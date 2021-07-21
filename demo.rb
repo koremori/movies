@@ -39,10 +39,10 @@ theatre = Theatre.new(file)
 # netflix.balance
 # p netflix.all
 
-p theatre.show('evening')
-p theatre.show('morning')
-p theatre.show('afternoon')
-p theatre.when?('Mad Max')
-p theatre.when?('The Thing')
-p theatre.when?('Metropolis')
-p theatre.when?('The Shawshank Redemption')
+theatre.show(22)
+theatre.show(7)
+theatre.show(14)
+theatre.when?('Mad Max')
+theatre.when?('The Shawshank Redemption')
+theatre.when?('Finding Nemo')
+theatre.when?('The Shining')
