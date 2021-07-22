@@ -19,13 +19,37 @@ RSpec.describe Theatre do
 
       context 'Afternoon session' do
         it 'shows movies at the box office in the afternoon' do
-          expect { theatre.show(14) }.to output("Now showing: Mad Max: Fury Road - new movie, released 6 years ago!\nNow showing: Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb - classical movie, dir. Stanley Kubrick\n").to_stdout
+          srand 0
+          movie1 = theatre.show(14)
+          srand 1
+          movie2 = theatre.show(14)
+          srand 2
+          movie3 = theatre.show(14)
+          expect(movie1).to eq(movie1)
+          expect(movie1).not_to eq(movie2)
+          expect(movie2).to eq(movie2)
+          expect(movie2).not_to eq(movie1)
+          expect(movie2).not_to eq(movie3)
+          expect(movie3).to eq(movie3)
+          expect(movie3).not_to eq(movie2)
         end
       end
 
       context 'Evening session' do
         it 'shows movies at the box office in the evening' do
-          expect { theatre.show(22) }.to output("Now showing: The Shawshank Redemption - modern movie, starring: Tim Robbins, Morgan Freeman, Bob Gunton\nNow showing: The Thing - modern movie, starring: Kurt Russell, Wilford Brimley, Keith David\n").to_stdout
+          srand 0
+          movie1 = theatre.show(22)
+          srand 1
+          movie2 = theatre.show(22)
+          srand 3
+          movie3 = theatre.show(22)
+          expect(movie1).to eq(movie1)
+          expect(movie1).not_to eq(movie2)
+          expect(movie2).to eq(movie2)
+          expect(movie2).not_to eq(movie1)
+          expect(movie2).not_to eq(movie3)
+          expect(movie3).to eq(movie3)
+          expect(movie3).not_to eq(movie2)
         end
       end
     end
