@@ -25,12 +25,8 @@ RSpec.describe Theatre do
           movie2 = theatre.show(14)
           srand 2
           movie3 = theatre.show(14)
-          expect(movie1).to eq(movie1)
           expect(movie1).not_to eq(movie2)
-          expect(movie2).to eq(movie2)
           expect(movie2).not_to eq(movie1)
-          expect(movie2).not_to eq(movie3)
-          expect(movie3).to eq(movie3)
           expect(movie3).not_to eq(movie2)
         end
       end
@@ -43,12 +39,8 @@ RSpec.describe Theatre do
           movie2 = theatre.show(22)
           srand 3
           movie3 = theatre.show(22)
-          expect(movie1).to eq(movie1)
           expect(movie1).not_to eq(movie2)
-          expect(movie2).to eq(movie2)
           expect(movie2).not_to eq(movie1)
-          expect(movie2).not_to eq(movie3)
-          expect(movie3).to eq(movie3)
           expect(movie3).not_to eq(movie2)
         end
       end
