@@ -65,7 +65,7 @@ RSpec.describe Theatre do
       it 'outputs evening time movies' do
         expect { theatre.when?('The Thing') }.to output("The Thing will be shown in the evening\n").to_stdout
         expect { theatre.when?('The Shawshank Redemption') }.to output("The Shawshank Redemption will be shown in the evening\n").to_stdout
-        expect { theatre.when?('Anatomy of a Murder') }.to output("Anatomy of a Murder will be shown in the evening\n").to_stdout
+        expect { theatre.when?('Vertigo') }.to output("Vertigo will be shown in the shadow realm\n").to_stdout
       end
     end
   end

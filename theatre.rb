@@ -24,16 +24,18 @@ class Theatre < MovieCollection
 
   def when?(title)
     match = @movies.select { |movie| movie.title.include?(title) }
-    case match.first
-    when AncientMovie
-      time = 'morning'
-    else
-      if genre_matching(match.first, 'Adventure') || genre_matching(match.first, 'Comedy')
-        time = 'afternoon'
-      elsif genre_matching(match.first, 'Horror') || genre_matching(match.first, 'Drama')
-        time = 'evening'
-      end
-    end
+    time = case match.first
+           when AncientMovie
+             'morning'
+           else
+             if genre_matching(match.first, 'Adventure') || genre_matching(match.first, 'Comedy')
+               'afternoon'
+             elsif genre_matching(match.first, 'Horror') || genre_matching(match.first, 'Drama')
+               'evening'
+             else
+               'shadow realm'
+             end
+           end
     puts "#{title} will be shown in the #{time}"
   end
 
