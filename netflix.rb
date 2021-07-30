@@ -6,7 +6,7 @@ require 'date'
 class Netflix < MovieCollection
   attr_reader :wallet
 
-  TIME = Time.new
+  TIME = Time.now
 
   FILTER = { ancient: AncientMovie,
              classic: ClassicMovie,

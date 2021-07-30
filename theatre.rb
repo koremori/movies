@@ -3,7 +3,6 @@
 require_relative 'movie_collection'
 
 class Theatre < MovieCollection
-  TIME = Time.now
 
   def genre_matching(movie, genre)
     movie.genre.include?(genre)
