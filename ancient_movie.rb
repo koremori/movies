@@ -2,7 +2,7 @@
 
 class AncientMovie < Movie
   COST = 1
-  def to_s
+  def info
     "#{@title} - ancient movie (#{@shot})"
   end
 end

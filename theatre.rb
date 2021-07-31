@@ -1,10 +1,6 @@
 # frozen_string_literal: true
 
 class Theatre < MovieCollection
-  def genre_matching(movie, genre)
-    movie.genre.include?(genre)
-  end
-
   def show(time)
     choice = []
     case time
@@ -35,7 +31,13 @@ class Theatre < MovieCollection
     puts "#{title} will be shown in the #{time}"
   end
 
+  private
+
+  def genre_matching(movie, genre)
+    movie.genre.include?(genre)
+  end
+
   def render_output(movie)
-    puts "Now showing: #{movie}"
+    puts "Now showing: #{movie.info}"
   end
 end

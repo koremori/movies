@@ -2,7 +2,7 @@
 
 class ModernMovie < Movie
   COST = 3
-  def to_s
+  def info
     "#{@title} - modern movie, starring: #{@cast.join(', ')}"
   end
 end

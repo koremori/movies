@@ -2,7 +2,7 @@
 
 class ClassicMovie < Movie
   COST = 1.5
-  def to_s
+  def info
     "#{@title} - classical movie, dir. #{@director}"
   end
 end

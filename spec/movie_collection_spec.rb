@@ -26,18 +26,23 @@ RSpec.describe MovieCollection do
   end
 
   context 'stats' do
+    let(:genres) do
+      { 'Action' => 1,
+        'Adventure' => 1,
+        'Comedy' => 1,
+        'Crime' => 2,
+        'Drama' => 3,
+        'Horror' => 1,
+        'Mystery' => 2,
+        'Romance' => 1,
+        'Sci-Fi' => 3,
+        'Thriller' => 1,
+        'War' => 1 }
+    end
     it 'shows whole quantity of matches' do
-      expect(movie_data.stats(:genre)).to eq({ 'Action' => 1,
-                                               'Adventure' => 1,
-                                               'Comedy' => 1,
-                                               'Crime' => 2,
-                                               'Drama' => 3,
-                                               'Horror' => 1,
-                                               'Mystery' => 2,
-                                               'Romance' => 1,
-                                               'Sci-Fi' => 3,
-                                               'Thriller' => 1,
-                                               'War' => 1 })
+      expect(genres['Sci-Fi']).to eq(3)
+      expect(genres['Drama']).to eq(3)
+      expect(genres['War']).to eq(1)
     end
   end
 end
