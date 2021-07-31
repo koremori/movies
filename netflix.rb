@@ -36,6 +36,6 @@ class Netflix < MovieCollection
   end
 
   def render_output(movie)
-    puts "Now showing: #{movie.info} (Start time: #{TIME.strftime('%H:%M')}, End time: #{(TIME + (movie.runtime * 60)).strftime('%H:%M')})"
+    puts "Now showing: #{movie} (Start time: #{TIME.strftime('%H:%M')}, End time: #{(TIME + (movie.runtime * 60)).strftime('%H:%M')})"
   end
 end

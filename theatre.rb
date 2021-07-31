@@ -36,6 +36,6 @@ class Theatre < MovieCollection
   end
 
   def render_output(movie)
-    puts "Now showing: #{movie.info}"
+    puts "Now showing: #{movie}"
   end
 end
