@@ -18,17 +18,18 @@ theatre = Theatre.new(file)
 
 # movies.sort_by(:rating) # <= and any other keys
 # movies.filter(:origin, 'Soviet Union')
-movies.stats(:genre)
+movies.stats(:origin)
 # p movies.all.first.has_genre?('Drama')
+
 # netflix.how_much?('Metropolis')
 # netflix.balance
 netflix.pay(20)
 # netflix.show('Comedy', :new)
 # netflix.show('Drama', :ancient)
-# netflix.balance
+netflix.balance
 netflix.show('Comedy', :ancient)
 netflix.show('Adventure', :modern)
-# netflix.balance
+netflix.balance
 netflix.show('Drama', :new)
 netflix.balance
 

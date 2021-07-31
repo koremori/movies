@@ -1,8 +1,5 @@
 # frozen_string_literal: true
 
-require_relative 'movie_collection'
-require 'date'
-
 class Netflix < MovieCollection
   attr_reader :wallet
 

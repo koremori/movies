@@ -2,6 +2,11 @@
 
 require 'csv'
 
+require_relative 'ancient_movie'
+require_relative 'classic_movie'
+require_relative 'modern_movie'
+require_relative 'new_movie'
+
 # This class controls inner behaviour of all movies in the list
 class MovieCollection
   MOVIE_CLASSES = { 1900..1945 => AncientMovie,
