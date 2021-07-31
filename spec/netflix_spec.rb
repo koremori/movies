@@ -27,11 +27,11 @@ RSpec.describe Netflix do
     context 'success' do
       before { netflix.pay(15) }
       it 'chooses random movie by passed genre and historical period' do
-        expect { netflix.show('Sci-Fi', :new) }.to output("Now showing: #{netflix.all[4].info} (Start time: #{Time.new.strftime('%H:%M')}, End time: #{(Time.new + (netflix.all[4].runtime * 60)).strftime('%H:%M')})\n").to_stdout
-        expect { netflix.show('Sci-Fi', :ancient) }.to output("Now showing: #{netflix.all[3].info} (Start time: #{Time.new.strftime('%H:%M')}, End time: #{(Time.new + (netflix.all[3].runtime * 60)).strftime('%H:%M')})\n").to_stdout
-        expect { netflix.show('Crime', :modern) }.to output("Now showing: #{netflix.all[0].info} (Start time: #{Time.new.strftime('%H:%M')}, End time: #{(Time.new + (netflix.all[0].runtime * 60)).strftime('%H:%M')})\n").to_stdout
-        expect { netflix.show('Thriller', :classic) }.to output("Now showing: #{netflix.all[1].info} (Start time: #{Time.new.strftime('%H:%M')}, End time: #{(Time.new + (netflix.all[1].runtime * 60)).strftime('%H:%M')})\n").to_stdout
-        expect { netflix.show('Drama', :classic) }.to output("Now showing: #{netflix.all[2].info} (Start time: #{Time.new.strftime('%H:%M')}, End time: #{(Time.new + (netflix.all[2].runtime * 60)).strftime('%H:%M')})\n").to_stdout
+        expect { netflix.show('Sci-Fi', :new) }.to output("Now showing: #{netflix.all[4]} (Start time: #{Time.new.strftime('%H:%M')}, End time: #{(Time.new + (netflix.all[4].runtime * 60)).strftime('%H:%M')})\n").to_stdout
+        expect { netflix.show('Sci-Fi', :ancient) }.to output("Now showing: #{netflix.all[3]} (Start time: #{Time.new.strftime('%H:%M')}, End time: #{(Time.new + (netflix.all[3].runtime * 60)).strftime('%H:%M')})\n").to_stdout
+        expect { netflix.show('Crime', :modern) }.to output("Now showing: #{netflix.all[0]} (Start time: #{Time.new.strftime('%H:%M')}, End time: #{(Time.new + (netflix.all[0].runtime * 60)).strftime('%H:%M')})\n").to_stdout
+        expect { netflix.show('Thriller', :classic) }.to output("Now showing: #{netflix.all[1]} (Start time: #{Time.new.strftime('%H:%M')}, End time: #{(Time.new + (netflix.all[1].runtime * 60)).strftime('%H:%M')})\n").to_stdout
+        expect { netflix.show('Drama', :classic) }.to output("Now showing: #{netflix.all[2]} (Start time: #{Time.new.strftime('%H:%M')}, End time: #{(Time.new + (netflix.all[2].runtime * 60)).strftime('%H:%M')})\n").to_stdout
       end
     end
 
