@@ -39,7 +39,8 @@ class MovieCollection
     @movies.flat_map(&key).sort.tally.each { |info, stat| stat_render(info, stat) }
   end
 
-  # Fancy output rendering methods
+  private
+
   def stat_render(key, value)
     puts "#{key}: #{value}"
   end
