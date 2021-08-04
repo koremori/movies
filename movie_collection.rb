@@ -7,7 +7,6 @@ require_relative 'classic_movie'
 require_relative 'modern_movie'
 require_relative 'new_movie'
 
-# This class controls inner behaviour of all movies in the list
 class MovieCollection
   MOVIE_CLASSES = { 1900..1945 => AncientMovie,
                     1945..1968 => ClassicMovie,
@@ -18,15 +17,10 @@ class MovieCollection
     @movies = CSV.read(file, col_sep: '|').map { |movie| class_mapper(movie[2]).new(movie) }
   end
 
-  def class_mapper(year)
-    MOVIE_CLASSES.find { |key, _value| key.cover?(year.to_i) }.last
-  end
-
   def all
     @movies
   end
 
-  # By 'key' we can send any instance variable stated in 'class Movie' to sort stuff
   def sort_by(key)
     @movies.sort_by(&key).each { |movie| movie_info(movie) }
   end
@@ -40,6 +34,10 @@ class MovieCollection
   end
 
   private
+
+  def class_mapper(year)
+    MOVIE_CLASSES.find { |key, _value| key.cover?(year.to_i) }.last
+  end
 
   def stat_render(key, value)
     puts "#{key}: #{value}"
