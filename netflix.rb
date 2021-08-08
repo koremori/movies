@@ -26,10 +26,10 @@ class Netflix < MovieCollection
   def show(genre, period)
     choice = []
     choice << @movies.select { |movie| movie.genre.include?(genre) && FILTER[period] == movie.class }.sample
-    choice.each { |movie| render_output(movie) }
     raise StandardError, 'Insufficient funds' if @wallet < choice.first.class::COST
 
     @wallet -= choice.first.class::COST
+    choice.each { |movie| render_output(movie) }
   end
 
   def how_much?(title)
