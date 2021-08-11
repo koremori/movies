@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class NewMovie < Movie
-  COST = 5
+  COST = Money.from_amount(5, 'USD')
   TIME = Time.now.year
   def info
     "#{@title} - new movie, released #{TIME - @shot} years ago!"
