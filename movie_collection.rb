@@ -2,19 +2,25 @@
 
 require 'csv'
 
-# This class controls inner behaviour of all movies in the list
+require_relative 'ancient_movie'
+require_relative 'classic_movie'
+require_relative 'modern_movie'
+require_relative 'new_movie'
+
 class MovieCollection
-  attr_reader :genre
+  MOVIE_CLASSES = { 1900..1945 => AncientMovie,
+                    1945..1968 => ClassicMovie,
+                    1968..2000 => ModernMovie,
+                    2000..2021 => NewMovie }.freeze
 
   def initialize(file)
-    @movies = CSV.read(file, col_sep: '|').map { |movie| Movie.new(movie) }
+    @movies = CSV.read(file, col_sep: '|').map { |movie| class_mapper(movie[2]).new(movie) }
   end
 
   def all
     @movies
   end
 
-  # By 'key' we can send any instance variable stated in 'class Movie' to sort stuff
   def sort_by(key)
     @movies.sort_by(&key).each { |movie| movie_info(movie) }
   end
@@ -27,7 +33,12 @@ class MovieCollection
     @movies.flat_map(&key).sort.tally.each { |info, stat| stat_render(info, stat) }
   end
 
-  # Fancy output rendering methods
+  private
+
+  def class_mapper(year)
+    MOVIE_CLASSES.find { |key, _value| key.cover?(year.to_i) }.last
+  end
+
   def stat_render(key, value)
     puts "#{key}: #{value}"
   end
@@ -37,6 +48,6 @@ class MovieCollection
   end
 
   def movie_info(movie)
-    puts "#{movie.title} (#{movie.release_date}; #{movie.genre.join(' ')}) - #{movie.duration} min; dir.#{movie.director}"
+    puts "#{movie.title} (#{movie.premiere}; #{movie.genre.join(' ')}) - #{movie.runtime} min; dir.#{movie.director}"
   end
 end
