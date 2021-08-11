@@ -21,7 +21,7 @@ theatre = Theatre.new(file)
 movies.stats(:origin)
 # p movies.all.first.has_genre?('Drama')
 
-# netflix.how_much?('Metropolis')
+netflix.how_much?('Metropolis')
 # netflix.balance
 netflix.pay(20)
 # netflix.show('Comedy', :new)
