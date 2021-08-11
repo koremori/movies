@@ -41,3 +41,7 @@ theatre.when?('Metropolis')
 theatre.when?('The Thing')
 theatre.when?('Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb')
 theatre.when?('Anatomy of a Murder')
+p movies.count
+p movies.first
+p netflix.first
+p theatre.first(2)
