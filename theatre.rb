@@ -3,7 +3,7 @@
 class Theatre < MovieCollection
   def initialize(file)
     super
-    @cashbox = Cashbox::Cash.balance
+    @cashbox = Cashbox::Cash.new
   end
 
   def show(time)
@@ -37,13 +37,13 @@ class Theatre < MovieCollection
                'shadow realm'
              end
            end
-    puts "#{title} will be shown in the #{time}"
+    puts "'#{title}' will be shown in the #{time}"
   end
 
   def take(who)
     case who
     when 'Bank'
-      @cashbox *= 0
+      @cashbox.balance *= 0
       puts 'Carried out encashment'
     else
       raise ArgumentError, 'Calling the police'
@@ -51,13 +51,13 @@ class Theatre < MovieCollection
   end
 
   def cash
-    puts "Earnings: #{@cashbox.format}"
+    puts "Earnings: #{@cashbox.balance.format}"
   end
 
   private
 
   def buy_ticket(currency)
-    @cashbox += Money.from_amount(currency, 'USD')
+    @cashbox.balance += Money.from_amount(currency, 'USD')
   end
 
   def genre_matching(movie, genre)
@@ -69,6 +69,6 @@ class Theatre < MovieCollection
   end
 
   def purchase_render(title)
-    puts "You've bought ticket to #{title}"
+    puts "You've bought ticket to '#{title}'"
   end
 end

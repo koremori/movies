@@ -7,8 +7,10 @@ Money.rounding_mode = BigDecimal::ROUND_HALF_EVEN
 
 module Cashbox
   class Cash
-    def self.balance
-      @amount = Money.from_amount(0, 'USD')
+    attr_accessor :balance
+
+    def initialize
+      @balance = Money.from_amount(0, 'USD')
     end
   end
 end
