@@ -13,7 +13,7 @@ class Netflix < MovieCollection
   #   @wallet = Cashbox::NetflixCash.balance
   # end
 
-  @@wallet = Cashbox::NetflixCash.balance
+  @@wallet = Cashbox::Cash.balance
 
   def pay(currency)
     @@wallet += Money.from_amount(currency, 'USD')

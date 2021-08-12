@@ -3,7 +3,7 @@
 class Theatre < MovieCollection
   def initialize(file)
     super
-    @cashbox = Cashbox::TheatreCash.balance
+    @cashbox = Cashbox::Cash.balance
   end
 
   def show(time)

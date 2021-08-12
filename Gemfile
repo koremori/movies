@@ -2,6 +2,7 @@
 
 source 'https://rubygems.org/'
 
+gem 'money'
 gem 'pry'
 gem 'pry-byebug'
 gem 'rspec'
