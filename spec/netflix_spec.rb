@@ -3,16 +3,21 @@
 RSpec.describe Netflix do
   let(:netflix) { Netflix.new('/home/koremori/project/movies/spec/example/movies_data_example.txt') }
 
-  context 'initialize' do
-    it 'returns class instance' do
-      expect(netflix.wallet).to eq(0)
-      expect(netflix.all.first.class).to eq(ModernMovie)
+  # context 'initialize' do
+    # it 'returns class instance' do
+      # expect(Netflix.cash).to eq(Money.from_amount(0, 'USD'))
+      # expect(netflix.all.first.class).to eq(ModernMovie)
+    # end
+  # end
+  context 'class variable' do
+    it 'appends Cashbox money value to class variable' do
+      expect { @@wallet }.to eq(Money.from_amount(0, 'USD'))
     end
   end
 
   context 'pay' do
     it 'adds money to wallet' do
-      expect { netflix.pay(20) }.to change { netflix.wallet }.from(0).to(20)
+      expect { netflix.pay(20) }.to change { Netflix.cash }.from(Money.from_amount(0, 'USD')).to(Money.from_cents(2000, 'USD'))
     end
   end
 
@@ -45,7 +50,7 @@ RSpec.describe Netflix do
 
   context 'how_much?' do
     it 'displays cost of particular movie' do
-      expect { netflix.how_much?('Vertigo') }.to output("Vertigo costs: #{netflix.all[1].class::COST}\n").to_stdout
+      expect { netflix.how_much?('Vertigo') }.to output("Vertigo costs: #{netflix.all[1].class::COST.format}\n").to_stdout
     end
   end
 end

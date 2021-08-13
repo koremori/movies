@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class AncientMovie < Movie
-  COST = 1
+  COST = Money.from_amount(1, 'USD')
   def info
     "#{@title} - ancient movie (#{@shot})"
   end

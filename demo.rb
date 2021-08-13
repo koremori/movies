@@ -21,17 +21,17 @@ theatre = Theatre.new(file)
 movies.stats(:origin)
 # p movies.all.first.has_genre?('Drama')
 
-# netflix.how_much?('Metropolis')
-# netflix.balance
+netflix.how_much?('Metropolis')
+Netflix.cash
 netflix.pay(20)
-# netflix.show('Comedy', :new)
-# netflix.show('Drama', :ancient)
-netflix.balance
+netflix.show('Comedy', :new)
+netflix.show('Drama', :ancient)
+Netflix.cash
 netflix.show('Comedy', :ancient)
 netflix.show('Adventure', :modern)
-netflix.balance
+Netflix.cash
 netflix.show('Drama', :new)
-netflix.balance
+Netflix.cash
 
 theatre.show(22)
 theatre.show(7)
@@ -41,3 +41,16 @@ theatre.when?('Metropolis')
 theatre.when?('The Thing')
 theatre.when?('Dr. Strangelove or: How I Learned to Stop Worrying and Love the Bomb')
 theatre.when?('Anatomy of a Murder')
+p movies.count
+p netflix.first
+p theatre.first(2)
+Netflix.cash
+theatre.cash
+theatre.take('Bank')
+theatre.cash
+Netflix.cash
+netflix2 = Netflix.new(file)
+netflix2.pay(30)
+Netflix.cash
+netflix.take('Bank')
+Netflix.cash

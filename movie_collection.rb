@@ -6,8 +6,12 @@ require_relative 'ancient_movie'
 require_relative 'classic_movie'
 require_relative 'modern_movie'
 require_relative 'new_movie'
+require_relative 'cashbox'
 
 class MovieCollection
+  include Enumerable
+  include Cashbox
+
   MOVIE_CLASSES = { 1900..1945 => AncientMovie,
                     1945..1968 => ClassicMovie,
                     1968..2000 => ModernMovie,
@@ -15,6 +19,10 @@ class MovieCollection
 
   def initialize(file)
     @movies = CSV.read(file, col_sep: '|').map { |movie| class_mapper(movie[2]).new(movie) }
+  end
+
+  def each(&block)
+    @movies.each(&block)
   end
 
   def all

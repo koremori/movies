@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'date'
+require 'money'
 
 # This class controls each specific field of information about each individual movie
 class Movie
